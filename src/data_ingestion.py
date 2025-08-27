@@ -47,8 +47,8 @@ def load_data(data_url : str) -> pd.DataFrame :
 def preprocess_data(df:pd.DataFrame) -> pd.DataFrame:
     """Preproces the data"""
     try:
-        df.drop(columns=['Unnamed: 2','Unnamed: 3','Unnamed: 4'])
-        df.rename(columns={'v1':'target','v2':'text'})
+        df.drop(columns=['Unnamed: 2','Unnamed: 3','Unnamed: 4'],inplace=True)
+        df.rename(columns={'v1':'target','v2':'text'},inplace=True)
         logger.debug("Data preprocessing complete")
         return df
     except KeyError as e:
